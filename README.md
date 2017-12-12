@@ -5,7 +5,7 @@ This application will demonstrate how to control a LED on an nRF development kit
 
 ## Nordic LED and Button Service
 ###### Service UUID: `00001523-1212-EFDE-1523-785FEABCD123`
-A simplified proprietary service by Nordic Semiconductor, containing two characteristics one to control LED1 and Button1:
+A simplified proprietary service by Nordic Semiconductor, containing two characteristics one to control LED3 and Button1:
 - First characteristic controls the LED state (On/Off).
   - UUID: **`00001525-1212-EFDE-1523-785FEABCD123`**
   - Value: **`1`** => LED On
@@ -36,6 +36,6 @@ A simplified proprietary service by Nordic Semiconductor, containing two charact
   - The app will start scanning for nearby peripherals.
   - Select the nRF_Blinky peripheral that appears on screen (**Note:** if the peripheral does not show up, ensure that it's powered on and functional).
   - Your iOS device will now connect to the peripheral and state is displayed on the screen.
-  - Changing the value of the Toggle switch will turn LED 1 on or off.
+  - Changing the value of the Toggle switch will turn LED 3 on or off.
   - Pressing Button 1 on the Development Kit will show the button state as Pressed on the app.
   - Releasing Button 1 will show the state as Released on the App.
