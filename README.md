@@ -21,6 +21,7 @@ A simplified proprietary service by Nordic Semiconductor, containing two charact
 - The Blinky example firmware to flash on the Development Kit, there are a few places to acquire that:
 - For your conveninence, we have bundled two firmwares in this project under the Firmwares directory.
 - To get the latest firmwares and check the source code, you may go directly to our [Developers website](http://developer.nordicsemi.com/nRF5_SDK/) and download the SDK version you need, then you can find the source code and hex files to the blinky demo in the directory `/examples/ble_peripheral/ble_app_blinky/`
+-  More information about the nRFBlinky example firmware can be found in the [Info center](https://infocenter.nordicsemi.com/index.jsp?topic=%2Fcom.nordic.infocenter.sdk5.v14.1.0%2Fble_sdk_app_blinky.html)
 
 ### Installation and usage:
 - Prepare your Development kit.
