@@ -36,11 +36,10 @@
                     <rect key="frame" x="0.0" y="0.0" width="370" height="27"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="byNordic" translatesAutoresizingMaskIntoConstraints="NO" id="ks6-Eq-dUo">
+                        <imageView opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="byNordic" translatesAutoresizingMaskIntoConstraints="NO" id="ks6-Eq-dUo">
                             <rect key="frame" x="125" y="0.0" width="120" height="11"/>
                         </imageView>
                     </subviews>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="g7q-9Z-KkO" firstAttribute="bottom" secondItem="ks6-Eq-dUo" secondAttribute="bottom" constant="16" id="FwJ-Tv-R75"/>
                         <constraint firstItem="ks6-Eq-dUo" firstAttribute="centerX" secondItem="g7q-9Z-KkO" secondAttribute="centerX" id="ocT-RQ-XAP"/>
@@ -142,25 +141,25 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1. Make sure it's switched on." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bcI-yv-RmI">
-                            <rect key="frame" x="16" y="118" width="193.5" height="17"/>
+                            <rect key="frame" x="18" y="118" width="194" height="17"/>
                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2. Make sure the coin cell battery has power." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rmw-BF-cDo">
-                            <rect key="frame" x="16" y="168" width="294.5" height="17"/>
+                            <rect key="frame" x="18" y="168" width="294.5" height="17"/>
                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Toggle the switch next tot he micro USB port to switch it on." lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IAE-tV-Psp">
-                            <rect key="frame" x="16" y="137" width="316" height="14"/>
+                            <rect key="frame" x="18" y="137" width="316" height="14"/>
                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="If not, connect it to a PC or a charger using a micro USB cable. Coin cell battery is on the bottom side of the dev kit." lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MCd-9i-lIO">
-                            <rect key="frame" x="16" y="187" width="328.5" height="26.5"/>
+                            <rect key="frame" x="18" y="187" width="328.5" height="26.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
@@ -169,21 +168,25 @@
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="bcI-yv-RmI" firstAttribute="top" secondItem="eor-wV-hOm" secondAttribute="bottom" constant="20" id="2Zo-PA-jUm"/>
-                        <constraint firstItem="rmw-BF-cDo" firstAttribute="leading" secondItem="yGS-eH-kQh" secondAttribute="leading" constant="16" id="3od-ce-B9M"/>
+                        <constraint firstItem="bcI-yv-RmI" firstAttribute="centerX" secondItem="yGS-eH-kQh" secondAttribute="centerX" constant="-70" id="3dG-id-lWE"/>
                         <constraint firstItem="eor-wV-hOm" firstAttribute="centerX" secondItem="yGS-eH-kQh" secondAttribute="centerX" id="7Ln-IE-2hw"/>
-                        <constraint firstItem="yGS-eH-kQh" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="rmw-BF-cDo" secondAttribute="trailing" constant="16" id="9yA-0E-HTB"/>
+                        <constraint firstItem="yGS-eH-kQh" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="MCd-9i-lIO" secondAttribute="trailing" constant="10" id="8vP-X7-jbV"/>
                         <constraint firstItem="rmw-BF-cDo" firstAttribute="top" secondItem="IAE-tV-Psp" secondAttribute="bottom" constant="17" id="JQa-k1-PUe"/>
                         <constraint firstItem="IAE-tV-Psp" firstAttribute="top" secondItem="bcI-yv-RmI" secondAttribute="bottom" constant="2" id="KsS-pS-h4D"/>
-                        <constraint firstItem="IAE-tV-Psp" firstAttribute="leading" secondItem="yGS-eH-kQh" secondAttribute="leading" constant="16" id="UrI-BJ-pur"/>
-                        <constraint firstItem="bcI-yv-RmI" firstAttribute="leading" secondItem="yGS-eH-kQh" secondAttribute="leading" constant="16" id="XED-VM-Ebg"/>
-                        <constraint firstItem="yGS-eH-kQh" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="MCd-9i-lIO" secondAttribute="trailing" constant="16" id="aHH-QT-lPN"/>
+                        <constraint firstItem="IAE-tV-Psp" firstAttribute="leading" secondItem="bcI-yv-RmI" secondAttribute="leading" id="Nrq-FZ-QN2"/>
+                        <constraint firstItem="rmw-BF-cDo" firstAttribute="leading" secondItem="bcI-yv-RmI" secondAttribute="leading" id="PCF-YQ-3TX"/>
+                        <constraint firstItem="IAE-tV-Psp" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="yGS-eH-kQh" secondAttribute="leading" constant="10" id="RRu-wh-fv3"/>
+                        <constraint firstItem="yGS-eH-kQh" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="bcI-yv-RmI" secondAttribute="trailing" constant="10" id="Xth-gP-EPg"/>
+                        <constraint firstItem="MCd-9i-lIO" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="yGS-eH-kQh" secondAttribute="leading" constant="10" id="ali-6p-WT6"/>
                         <constraint firstItem="MCd-9i-lIO" firstAttribute="top" secondItem="rmw-BF-cDo" secondAttribute="bottom" constant="2" id="c5a-it-7dD"/>
-                        <constraint firstItem="MCd-9i-lIO" firstAttribute="leading" secondItem="yGS-eH-kQh" secondAttribute="leading" constant="16" id="k6z-xE-I4a"/>
+                        <constraint firstItem="bcI-yv-RmI" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="yGS-eH-kQh" secondAttribute="leading" constant="10" id="lGt-8r-YVw"/>
+                        <constraint firstItem="yGS-eH-kQh" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="IAE-tV-Psp" secondAttribute="trailing" constant="10" id="ncB-09-Yae"/>
                         <constraint firstItem="0Z5-h0-3hn" firstAttribute="centerX" secondItem="yGS-eH-kQh" secondAttribute="centerX" id="oDu-Dj-pTW"/>
                         <constraint firstItem="eor-wV-hOm" firstAttribute="top" secondItem="0Z5-h0-3hn" secondAttribute="bottom" constant="16" id="oSZ-wu-4Ou"/>
-                        <constraint firstItem="yGS-eH-kQh" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="IAE-tV-Psp" secondAttribute="trailing" constant="16" id="wEp-7g-QGq"/>
+                        <constraint firstItem="yGS-eH-kQh" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="rmw-BF-cDo" secondAttribute="trailing" constant="10" id="qrs-18-rm5"/>
+                        <constraint firstItem="rmw-BF-cDo" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="yGS-eH-kQh" secondAttribute="leading" constant="10" id="r1M-vB-NbY"/>
                         <constraint firstItem="0Z5-h0-3hn" firstAttribute="top" secondItem="yGS-eH-kQh" secondAttribute="top" constant="16" id="xfk-qU-tCF"/>
-                        <constraint firstItem="yGS-eH-kQh" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="bcI-yv-RmI" secondAttribute="trailing" constant="16" id="zc5-gZ-1Hg"/>
+                        <constraint firstItem="MCd-9i-lIO" firstAttribute="leading" secondItem="bcI-yv-RmI" secondAttribute="leading" id="zy9-1o-Zu8"/>
                     </constraints>
                     <viewLayoutGuide key="safeArea" id="yGS-eH-kQh"/>
                 </view>
