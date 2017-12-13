@@ -104,10 +104,13 @@ class ScannerTableViewController: UITableViewController, CBCentralManagerDelegat
     // MARK: - UIViewController
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        centralManager.delegate = self
         discoveredPeripherals.removeAll()
         tableView.reloadData()
-        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        centralManager.delegate = self
         if centralManager.state == .poweredOn {
             activityIndicator.startAnimating()
             centralManager.scanForPeripherals(withServices: [BlinkyPeripheral.nordicBlinkyServiceUUID], options: [CBCentralManagerScanOptionAllowDuplicatesKey : true])
