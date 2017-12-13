@@ -52,15 +52,7 @@ class BlinkyViewController: UITableViewController, CBCentralManagerDelegate {
         }
     }
     
-    //MARK: - UITableViewDelegate
-    override func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-    
-    //MARK: - UIViewController
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
+    private func setupDependencies() {
         //This will run on iOS 10 or above
         //and will generate a tap feedback when the button is tapped on the Dev kit.
         prepareHaptics()
@@ -70,7 +62,7 @@ class BlinkyViewController: UITableViewController, CBCentralManagerDelegate {
         buttonStateLabel.text = "Reading ..."
         ledStateLabel.text    = "Reading ..."
         ledToggleSwitch.isEnabled = false
-
+        
         print("Adding button notification and LED write callback handlers")
         blinkyPeripheral.setButtonCallback { (isPressed) -> (Void) in
             DispatchQueue.main.async {
@@ -88,7 +80,7 @@ class BlinkyViewController: UITableViewController, CBCentralManagerDelegate {
                 if !self.ledToggleSwitch.isEnabled {
                     self.ledToggleSwitch.isEnabled = true
                 }
-
+                
                 if isOn {
                     self.ledStateLabel.text = "ON"
                     if self.ledToggleSwitch.isOn == false {
@@ -103,8 +95,23 @@ class BlinkyViewController: UITableViewController, CBCentralManagerDelegate {
             }
         }
     }
+    //MARK: - UITableViewDelegate
+    override func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+        return false
+    }
+    
+    //MARK: - UIViewController
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        guard blinkyPeripheral.basePeripheral.state != .connected else {
+            //View is coming back from a swipe, everything is already setup
+            return
+        }
+        //This is the first time view appears, setup the subviews and dependencies
+        setupDependencies()
+    }
 
-    override func viewWillDisappear(_ animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
         print("Removing button notification and LED write callback handlers")
         blinkyPeripheral.removeLEDCallback()
         blinkyPeripheral.removeButtonCallback()
@@ -112,9 +119,9 @@ class BlinkyViewController: UITableViewController, CBCentralManagerDelegate {
         if blinkyPeripheral.basePeripheral.state == .connected {
             centralManager.cancelPeripheralConnection(blinkyPeripheral.basePeripheral)
         }
-
-        super.viewWillDisappear(animated)
+        super.viewDidDisappear(animated)
     }
+
     //MARK: - CBCentralManagerDelegate
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
         if central.state != .poweredOn {

@@ -1,0 +1,5 @@
+- **1.0.1**:
+    - Bugfix: Fixed an issue where swiping back from the peripheral view without actually dismissing would cause the app not to reconnect to the Blinky peripheral.
+
+- **1.0**:
+    - Initial implementation
