@@ -32,7 +32,7 @@ class ScannerTableViewController: UITableViewController, CBCentralManagerDelegat
             coordinator.animate(alongsideTransition: { (context) in
                 let width = self.emptyPeripheralsView.frame.size.width
                 let height = self.emptyPeripheralsView.frame.size.height
-                if context.containerView.frame.size.height > context.containerView.frame.size.height {
+                if context.containerView.frame.size.height > context.containerView.frame.size.width {
                     self.emptyPeripheralsView.frame = CGRect(x: 0,
                                                              y: (context.containerView.frame.size.height / 2) - (height / 2),
                                                              width: width,

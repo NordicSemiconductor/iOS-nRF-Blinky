@@ -37,18 +37,20 @@ class BlinkyViewController: UITableViewController, CBCentralManagerDelegate {
     }
     
     public func setPeripheral(_ aPeripheral: BlinkyPeripheral) {
+        let peripheralName = aPeripheral.advertisedName ?? "Unknown Device"
+        title = peripheralName
         blinkyPeripheral = aPeripheral
-        print("Connected to blinky peripheral")
+        print("connecting to blinky")
         centralManager.connect(blinkyPeripheral.basePeripheral, options: nil)
     }
     
     private func handleSwitchValueChange(newValue isOn: Bool){
         if isOn {
             blinkyPeripheral.turnOnLED()
-            ledStateLabel.text = "Turning On"
+            ledStateLabel.text = "ON"
         } else {
             blinkyPeripheral.turnOffLED()
-            ledStateLabel.text = "Turning Off"
+            ledStateLabel.text = "OFF"
         }
     }
     
@@ -63,7 +65,7 @@ class BlinkyViewController: UITableViewController, CBCentralManagerDelegate {
         ledStateLabel.text    = "Reading ..."
         ledToggleSwitch.isEnabled = false
         
-        print("Adding button notification and LED write callback handlers")
+        print("adding button notification and led write callback handlers")
         blinkyPeripheral.setButtonCallback { (isPressed) -> (Void) in
             DispatchQueue.main.async {
                 if isPressed {
@@ -112,7 +114,7 @@ class BlinkyViewController: UITableViewController, CBCentralManagerDelegate {
     }
 
     override func viewDidDisappear(_ animated: Bool) {
-        print("Removing button notification and LED write callback handlers")
+        print("removing button notification and led write callback handlers")
         blinkyPeripheral.removeLEDCallback()
         blinkyPeripheral.removeButtonCallback()
         
@@ -131,14 +133,14 @@ class BlinkyViewController: UITableViewController, CBCentralManagerDelegate {
 
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
         if peripheral == blinkyPeripheral.basePeripheral {
-            print("Connected to blinky.")
+            print("connected to blinky.")
             blinkyPeripheral.discoverBlinkyServices()
         }
     }
 
     func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
         if peripheral == blinkyPeripheral.basePeripheral {
-            print("Blinky disconnected.")
+            print("blinky disconnected.")
             navigationController?.popToRootViewController(animated: true)
         }
     }
