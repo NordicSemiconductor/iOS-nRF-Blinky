@@ -20,7 +20,7 @@ class RootViewController: UINavigationController {
         if !view.subviews.contains(wirelessByNordicView) {
             view.addSubview(wirelessByNordicView)
             wirelessByNordicView.frame = CGRect(x: 0, y: (view.frame.height - wirelessByNordicView.frame.size.height), width: view.frame.width, height: wirelessByNordicView.frame.height)
-            view.bringSubview(toFront: wirelessByNordicView)
+            view.bringSubviewToFront(wirelessByNordicView)
         }
     }
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {

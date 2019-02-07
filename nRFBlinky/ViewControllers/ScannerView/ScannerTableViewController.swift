@@ -122,7 +122,7 @@ class ScannerTableViewController: UITableViewController, CBCentralManagerDelegat
             view.addSubview(emptyPeripheralsView)
             emptyPeripheralsView.alpha = 0
             emptyPeripheralsView.frame = CGRect(x: 0, y: (view.frame.height / 2) - (emptyPeripheralsView.frame.size.height / 2), width: view.frame.width, height: emptyPeripheralsView.frame.height)
-            view.bringSubview(toFront: emptyPeripheralsView)
+            view.bringSubviewToFront(emptyPeripheralsView)
             UIView.animate(withDuration: 0.5, animations: {
                 self.emptyPeripheralsView.alpha = 1
             })
