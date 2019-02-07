@@ -110,8 +110,8 @@
 				30B664791FCD722A003C8B55 /* ViewControllers */,
 				30B664441FCD6E65003C8B55 /* AppDelegate.swift */,
 				30B664481FCD6E65003C8B55 /* Main.storyboard */,
-				30B6644B1FCD6E65003C8B55 /* Assets.xcassets */,
 				30B6644D1FCD6E65003C8B55 /* LaunchScreen.storyboard */,
+				30B6644B1FCD6E65003C8B55 /* Assets.xcassets */,
 				30B664501FCD6E65003C8B55 /* Info.plist */,
 			);
 			path = nRFBlinky;
