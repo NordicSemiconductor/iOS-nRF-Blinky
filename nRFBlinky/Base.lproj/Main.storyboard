@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PGS-Qc-QX1">
-    <device id="retina5_9" orientation="landscape">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,10 +15,9 @@
             <objects>
                 <navigationController id="PGS-Qc-QX1" customClass="RootViewController" customModule="nRFBlinky" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" largeTitles="YES" id="kFD-cB-vKu">
-                        <rect key="frame" x="0.0" y="0.0" width="812" height="32"/>
+                        <rect key="frame" x="0.0" y="44" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" red="1" green="0.9689972778" blue="0.97852283780000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="barTintColor" red="0.0" green="0.61176470589999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="adobeRGB1998"/>
+                        <color key="barTintColor" red="0.0" green="0.60392156862745094" blue="0.80784313725490198" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
@@ -27,25 +26,10 @@
                         </textAttributes>
                     </navigationBar>
                     <connections>
-                        <outlet property="wirelessByNordicView" destination="Qr9-OQ-JQy" id="4py-Bs-Fb7"/>
                         <segue destination="CiD-oR-yqB" kind="relationship" relationship="rootViewController" id="EHd-mF-XnI"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2y8-9H-oon" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <view contentMode="scaleToFill" id="Qr9-OQ-JQy">
-                    <rect key="frame" x="0.0" y="0.0" width="370" height="27"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    <subviews>
-                        <imageView opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="byNordic" translatesAutoresizingMaskIntoConstraints="NO" id="ks6-Eq-dUo">
-                            <rect key="frame" x="125" y="-21" width="120" height="11"/>
-                        </imageView>
-                    </subviews>
-                    <constraints>
-                        <constraint firstItem="g7q-9Z-KkO" firstAttribute="bottom" secondItem="ks6-Eq-dUo" secondAttribute="bottom" constant="16" id="FwJ-Tv-R75"/>
-                        <constraint firstItem="ks6-Eq-dUo" firstAttribute="centerX" secondItem="g7q-9Z-KkO" secondAttribute="centerX" id="ocT-RQ-XAP"/>
-                    </constraints>
-                    <viewLayoutGuide key="safeArea" id="g7q-9Z-KkO"/>
-                </view>
             </objects>
             <point key="canvasLocation" x="-1378" y="18"/>
         </scene>
@@ -54,25 +38,25 @@
             <objects>
                 <tableViewController id="CiD-oR-yqB" customClass="ScannerTableViewController" customModule="nRFBlinky" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="50" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="KMv-Sr-wl8">
-                        <rect key="frame" x="0.0" y="0.0" width="812" height="343"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="672"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="blinkyPeripheralCell" id="mag-9E-0Rv" userLabel="Table View Cell" customClass="BlinkyTableViewCell" customModule="nRFBlinky" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="55.333333333333343" width="812" height="50"/>
+                                <rect key="frame" x="0.0" y="55.333333333333343" width="375" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" tableViewCell="mag-9E-0Rv" id="md2-Pu-VGj">
-                                    <rect key="frame" x="44" y="0.0" width="686" height="49.666666666666664"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="341" height="49.666666666666664"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rssi_4" translatesAutoresizingMaskIntoConstraints="NO" id="jsd-rJ-BYZ">
-                                            <rect key="frame" x="640" y="8" width="38" height="33.666666666666664"/>
+                                            <rect key="frame" x="295" y="8" width="38" height="33.666666666666664"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="38" id="fse-ld-z1Y"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;Peripheral Name&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ufl-Iw-mhn">
-                                            <rect key="frame" x="20" y="14.333333333333336" width="148" height="21"/>
+                                            <rect key="frame" x="16" y="14.333333333333336" width="148" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -104,7 +88,7 @@
                         <barButtonItem key="backBarButtonItem" title="Scanner" id="K05-ZQ-Swb"/>
                         <barButtonItem key="rightBarButtonItem" id="ccs-ly-nJ2">
                             <view key="customView" contentMode="scaleToFill" id="g9z-vO-YFr">
-                                <rect key="frame" x="665" y="0.0" width="83" height="32"/>
+                                <rect key="frame" x="276" y="6" width="83" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="L63-Wi-8Oy">
@@ -127,38 +111,38 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5K2-BE-53J" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <view contentMode="scaleToFill" id="UsK-q4-ZJ2">
-                    <rect key="frame" x="0.0" y="0.0" width="370" height="300"/>
+                    <rect key="frame" x="0.0" y="0.0" width="370" height="423"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_bluetooth_searching_48pt" translatesAutoresizingMaskIntoConstraints="NO" id="0Z5-h0-3hn">
-                            <rect key="frame" x="113" y="16" width="144" height="144"/>
+                            <rect key="frame" x="113" y="60" width="144" height="144"/>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CAN'T SEE YOUR BLINKY?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="eor-wV-hOm">
-                            <rect key="frame" x="91" y="176" width="188" height="18"/>
+                            <rect key="frame" x="91" y="220" width="188" height="18"/>
                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                            <color key="textColor" red="0.0" green="0.61176470589999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="adobeRGB1998"/>
+                            <color key="textColor" red="0.0" green="0.46666666666666667" blue="0.78431372549019607" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1. Make sure it's switched on." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bcI-yv-RmI">
-                            <rect key="frame" x="60.333333333333336" y="214" width="109.33333333333331" height="33.666666666666657"/>
+                            <rect key="frame" x="18.333333333333329" y="258" width="193.33333333333337" height="17"/>
                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2. Make sure the coin cell battery has power." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rmw-BF-cDo">
-                            <rect key="frame" x="60.333333333333329" y="293" width="223.33333333333337" height="33.666666666666686"/>
+                            <rect key="frame" x="18.333333333333343" y="307.33333333333331" width="294.33333333333326" height="17"/>
                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Toggle the switch next tot he micro USB port to switch it on." lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IAE-tV-Psp">
-                            <rect key="frame" x="60.333333333333329" y="249.66666666666666" width="252.33333333333337" height="26.333333333333343"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Toggle the switch next to the micro USB port to switch it on." lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IAE-tV-Psp">
+                            <rect key="frame" x="18.333333333333343" y="277" width="315.66666666666663" height="13.333333333333314"/>
                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="If not, connect it to a PC or a charger using a micro USB cable. Coin cell battery is on the bottom side of the dev kit." lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MCd-9i-lIO">
-                            <rect key="frame" x="60.333333333333329" y="328.66666666666669" width="238.33333333333337" height="52.666666666666686"/>
+                            <rect key="frame" x="18.333333333333343" y="326.33333333333331" width="328.33333333333326" height="26.333333333333314"/>
                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
@@ -197,35 +181,35 @@
             <objects>
                 <tableViewController title="nRF Blinky" id="pK8-7d-htc" customClass="BlinkyViewController" customModule="nRFBlinky" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="OWj-h6-vmu">
-                        <rect key="frame" x="0.0" y="0.0" width="812" height="343"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="672"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
                             <tableViewSection headerTitle="LED" footerTitle="Toggling the switch will cause LED 3 on the Blinky peripheral to turn ON or OFF." id="4YT-Qt-7PG">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="56" id="CfY-WS-s1U">
-                                        <rect key="frame" x="0.0" y="55.333333333333343" width="812" height="56"/>
+                                        <rect key="frame" x="0.0" y="55.333333333333343" width="375" height="56"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CfY-WS-s1U" id="Yh0-rd-aOm">
-                                            <rect key="frame" x="44" y="0.0" width="724" height="55.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="55.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView opaque="NO" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_lightbulb_outline_48pt" translatesAutoresizingMaskIntoConstraints="NO" id="fWV-Uh-cs6">
-                                                    <rect key="frame" x="20" y="16" width="24" height="24"/>
+                                                    <rect key="frame" x="16" y="16" width="24" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="24" id="2Ju-TJ-MHf"/>
                                                         <constraint firstAttribute="width" constant="24" id="tZj-gq-7Hp"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OFF" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sXe-8K-21Q">
-                                                    <rect key="frame" x="52" y="19" width="29" height="18"/>
+                                                    <rect key="frame" x="48" y="19" width="29" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ug3-O5-D3G">
-                                                    <rect key="frame" x="655" y="12.333333333333336" width="51" height="31"/>
-                                                    <color key="onTintColor" red="0.0" green="0.50588235294117645" blue="0.71764705882352942" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <rect key="frame" x="310" y="12.333333333333336" width="51" height="31"/>
+                                                    <color key="onTintColor" red="0.0" green="0.46666666666666667" blue="0.78431372549019607" alpha="1" colorSpace="calibratedRGB"/>
                                                     <connections>
                                                         <action selector="ledToggleSwitchDidChange:" destination="pK8-7d-htc" eventType="valueChanged" id="LAy-So-9v3"/>
                                                     </connections>
@@ -247,21 +231,21 @@
                             <tableViewSection headerTitle="Button" footerTitle="Pressing and releasing BUTTON 1 on the Blinky peripheral will update the button state here." id="qKS-C3-Jkd">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="56" id="e04-76-3eK">
-                                        <rect key="frame" x="0.0" y="186.66666666666669" width="812" height="56"/>
+                                        <rect key="frame" x="0.0" y="202.66666666666669" width="375" height="56"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="e04-76-3eK" id="vyB-hh-Z5o">
-                                            <rect key="frame" x="44" y="0.0" width="724" height="55.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="55.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_radio_button_checked" translatesAutoresizingMaskIntoConstraints="NO" id="xUH-nx-YIX">
-                                                    <rect key="frame" x="20" y="16" width="24" height="24"/>
+                                                    <rect key="frame" x="16" y="16" width="24" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="24" id="c4J-S6-AGl"/>
                                                         <constraint firstAttribute="width" constant="24" id="eFo-h9-BEb"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UNKNOWN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oaQ-Ex-coH">
-                                                    <rect key="frame" x="52.000000000000007" y="19" width="80.666666666666686" height="18"/>
+                                                    <rect key="frame" x="48.000000000000007" y="19" width="80.666666666666686" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -296,11 +280,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="byNordic" width="120" height="11"/>
         <image name="ic_bluetooth_searching_48pt" width="144" height="144"/>
         <image name="ic_lightbulb_outline_48pt" width="144" height="144"/>
         <image name="ic_radio_button_checked" width="72" height="72"/>
         <image name="rssi_4" width="409.60000610351562" height="409.60000610351562"/>
     </resources>
-    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+    <color key="tintColor" red="0.0" green="0.60392156862745094" blue="0.80784313725490198" alpha="1" colorSpace="calibratedRGB"/>
 </document>

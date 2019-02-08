@@ -5,8 +5,8 @@
 /* Class = "UITableViewSection"; headerTitle = "LED"; ObjectID = "4YT-Qt-7PG"; */
 "4YT-Qt-7PG.headerTitle" = "LED";
 
-/* Class = "UILabel"; text = "Toggle the switch next tot he micro USB port to switch it on."; ObjectID = "IAE-tV-Psp"; */
-"IAE-tV-Psp.text" = "Toggle the switch next tot he micro USB port to switch it on.";
+/* Class = "UILabel"; text = "Toggle the switch next to the micro USB port to switch it on."; ObjectID = "IAE-tV-Psp"; */
+"IAE-tV-Psp.text" = "Toggle the switch next to the micro USB port to switch it on.";
 
 /* Class = "UIBarButtonItem"; title = "Scanner"; ObjectID = "K05-ZQ-Swb"; */
 "K05-ZQ-Swb.title" = "Scanner";
