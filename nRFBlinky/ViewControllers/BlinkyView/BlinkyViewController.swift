@@ -36,7 +36,7 @@ class BlinkyViewController: UITableViewController, CBCentralManagerDelegate {
     
     public func setPeripheral(_ peripheral: BlinkyPeripheral) {
         blinkyPeripheral = peripheral
-        title = peripheral.advertisedName ?? "Unknown Device"
+        title = peripheral.advertisedName ?? "Unknown Device".localized
         
         print("Connecting to Blinky device...")
         centralManager.connect(peripheral.basePeripheral, options: nil)
@@ -101,16 +101,16 @@ class BlinkyViewController: UITableViewController, CBCentralManagerDelegate {
         
         //Set default text to Reading ...
         //As soon as peripheral enables notifications the values will be notified
-        buttonStateLabel.text = "Reading..."
-        ledStateLabel.text    = "Reading..."
+        buttonStateLabel.text = "Reading...".localized
+        ledStateLabel.text    = "Reading...".localized
         ledToggleSwitch.isEnabled = false
         
         blinkyPeripheral.setButtonCallback { (isPressed) -> (Void) in
             DispatchQueue.main.async {
                 if isPressed {
-                    self.buttonStateLabel.text = "PRESSED"
+                    self.buttonStateLabel.text = "PRESSED".localized
                 } else {
-                    self.buttonStateLabel.text = "RELEASED"
+                    self.buttonStateLabel.text = "RELEASED".localized
                 }
                 self.buttonTapHapticFeedback()
             }
@@ -123,12 +123,12 @@ class BlinkyViewController: UITableViewController, CBCentralManagerDelegate {
                 }
                 
                 if isOn {
-                    self.ledStateLabel.text = "ON"
+                    self.ledStateLabel.text = "ON".localized
                     if self.ledToggleSwitch.isOn == false {
                         self.ledToggleSwitch.setOn(true, animated: true)
                     }
                 } else {
-                    self.ledStateLabel.text = "OFF"
+                    self.ledStateLabel.text = "OFF".localized
                     if self.ledToggleSwitch.isOn == true {
                         self.ledToggleSwitch.setOn(false, animated: true)
                     }
@@ -140,10 +140,10 @@ class BlinkyViewController: UITableViewController, CBCentralManagerDelegate {
     private func handleSwitchValueChange(newValue isOn: Bool){
         if isOn {
             blinkyPeripheral.turnOnLED()
-            ledStateLabel.text = "ON"
+            ledStateLabel.text = "ON".localized
         } else {
             blinkyPeripheral.turnOffLED()
-            ledStateLabel.text = "OFF"
+            ledStateLabel.text = "OFF".localized
         }
     }
 
