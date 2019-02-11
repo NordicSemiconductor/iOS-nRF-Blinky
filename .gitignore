@@ -67,3 +67,5 @@ fastlane/Preview.html
 fastlane/screenshots
 fastlane/test_output
 
+nRFBlinky.xcodeproj/project.xcworkspace/xcshareddata
+nRFBlinky.xcodeproj/xcshareddata/xcschemes
