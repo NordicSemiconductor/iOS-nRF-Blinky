@@ -42,4 +42,4 @@
 "sXe-8K-21Q.text" = "APAGADO";
 
 /* Class = "UILabel"; text = "<Peripheral Name>"; ObjectID = "ufl-Iw-mhn"; */
-"ufl-Iw-mhn.text" = "<Nombre del Periférico>";
+"ufl-Iw-mhn.text" = "Nordic Blinky";
