@@ -48,11 +48,11 @@ class ScannerTableViewController: UITableViewController, CBCentralManagerDelegat
         super.viewWillTransition(to: size, with: coordinator)
         if view.subviews.contains(emptyPeripheralsView) {
             coordinator.animate(alongsideTransition: { (context) in
-                let width = self.emptyPeripheralsView.frame.size.width
-                let height = self.emptyPeripheralsView.frame.size.height
-                if context.containerView.frame.size.height > context.containerView.frame.size.width {
+                let width = self.emptyPeripheralsView.frame.width
+                let height = self.emptyPeripheralsView.frame.height
+                if context.containerView.frame.height > context.containerView.frame.width {
                     self.emptyPeripheralsView.frame = CGRect(x: 0,
-                                                             y: (context.containerView.frame.size.height / 2) - (height / 2),
+                                                             y: (context.containerView.frame.height / 2) - 180,
                                                              width: width,
                                                              height: height)
                 } else {
@@ -129,7 +129,7 @@ class ScannerTableViewController: UITableViewController, CBCentralManagerDelegat
             view.addSubview(emptyPeripheralsView)
             emptyPeripheralsView.alpha = 0
             emptyPeripheralsView.frame = CGRect(x: 0,
-                                                y: (view.frame.height / 2) - (emptyPeripheralsView.frame.size.height / 2),
+                                                y: (view.frame.height / 2) - 180,
                                                 width: view.frame.width,
                                                 height: emptyPeripheralsView.frame.height)
             view.bringSubviewToFront(emptyPeripheralsView)
