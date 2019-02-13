@@ -31,6 +31,7 @@ class ScannerTableViewController: UITableViewController, CBCentralManagerDelegat
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        navigationController?.navigationBar.barTintColor = UIColor.nordicBlue
         centralManager.delegate = self
         if centralManager.state == .poweredOn {
             activityIndicator.startAnimating()
@@ -97,7 +98,7 @@ class ScannerTableViewController: UITableViewController, CBCentralManagerDelegat
     // MARK: - CBCentralManagerDelegate
     
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
-        let newPeripheral = BlinkyPeripheral(withPeripheral: peripheral, advertisementData: advertisementData, andRSSI: RSSI)
+        let newPeripheral = BlinkyPeripheral(withPeripheral: peripheral, advertisementData: advertisementData, andRSSI: RSSI, using: centralManager)
         if !discoveredPeripherals.contains(newPeripheral) {
             discoveredPeripherals.append(newPeripheral)
             tableView.beginUpdates()
@@ -159,7 +160,6 @@ class ScannerTableViewController: UITableViewController, CBCentralManagerDelegat
         if segue.identifier == "PushBlinkyView" {
             if let peripheral = sender as? BlinkyPeripheral {
                 let destinationView = segue.destination as! BlinkyViewController
-                destinationView.setCentralManager(centralManager)
                 destinationView.setPeripheral(peripheral)
             }
         }

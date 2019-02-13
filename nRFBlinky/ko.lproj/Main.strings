@@ -39,7 +39,7 @@
 "rmw-BF-cDo.text" = "2. Coin cell의 배터리가 충분한지 확인하세요.";
 
 /* Class = "UILabel"; text = "OFF"; ObjectID = "sXe-8K-21Q"; */
-"sXe-8K-21Q.text" = "꺼짐";
+"sXe-8K-21Q.text" = "알 수 없음";
 
 /* Class = "UILabel"; text = "Nordic Blinky"; ObjectID = "ufl-Iw-mhn"; */
 "ufl-Iw-mhn.text" = "Nordic Blinky";

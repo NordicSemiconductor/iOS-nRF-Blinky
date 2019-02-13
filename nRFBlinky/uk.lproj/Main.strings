@@ -39,7 +39,7 @@
 "rmw-BF-cDo.text" = "2. Переконайтеся, що пігулка (мініатюрний елемент живлення) має заряд.";
 
 /* Class = "UILabel"; text = "OFF"; ObjectID = "sXe-8K-21Q"; */
-"sXe-8K-21Q.text" = "ВИМКНУТО";
+"sXe-8K-21Q.text" = "НЕВІДОМО";
 
 /* Class = "UILabel"; text = "Nordic Blinky"; ObjectID = "ufl-Iw-mhn"; */
 "ufl-Iw-mhn.text" = "Nordic Blinky";
