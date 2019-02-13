@@ -36,7 +36,7 @@
 "qKS-C3-Jkd.headerTitle" = "Botão";
 
 /* Class = "UILabel"; text = "2. Make sure the coin cell battery has power."; ObjectID = "rmw-BF-cDo"; */
-"rmw-BF-cDo.text" = "2. Certifique-se de que a bateria célula to tipo moeda está carregada.";
+"rmw-BF-cDo.text" = "2. Certifique-se de que a bateria de célula to tipo moeda está carregada.";
 
 /* Class = "UILabel"; text = "UNKNOWN"; ObjectID = "sXe-8K-21Q"; */
 "sXe-8K-21Q.text" = "DESCONHECIDO";
