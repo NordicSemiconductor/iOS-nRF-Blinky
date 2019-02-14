@@ -12,7 +12,7 @@
 "K05-ZQ-Swb.title" = "Сканер";
 
 /* Class = "UILabel"; text = "If not, connect it to a PC or a charger using a micro USB cable. Coin cell battery is on the bottom side of the dev kit."; ObjectID = "MCd-9i-lIO"; */
-"MCd-9i-lIO.text" = "Если нет, то подключите его к компьютеру или к зарядному устройству используя кабель micro USB.   Таблетка (миниатюрный элемент питания) находится на нижней стороне комплекта разработчика.";
+"MCd-9i-lIO.text" = "Если нет, то подключите устройство к компьютеру, или к зарядкому устройству, используя кабель micro USB.   Таблетка (миниатюрный элемент питания) находится на нижней стороне комплекта разработчика.";
 
 /* Class = "UILabel"; text = "1. Make sure it's switched on."; ObjectID = "bcI-yv-RmI"; */
 "bcI-yv-RmI.text" = "1. Убедитесь, что оно включено.";
