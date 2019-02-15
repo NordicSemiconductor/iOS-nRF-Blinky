@@ -115,29 +115,29 @@
                     <rect key="frame" x="0.0" y="0.0" width="370" height="423"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_bluetooth_searching_48pt" translatesAutoresizingMaskIntoConstraints="NO" id="0Z5-h0-3hn">
-                            <rect key="frame" x="113" y="60" width="144" height="144"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="scanning" translatesAutoresizingMaskIntoConstraints="NO" id="0Z5-h0-3hn">
+                            <rect key="frame" x="153" y="60" width="64" height="64"/>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CAN'T SEE YOUR BLINKY?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="eor-wV-hOm">
-                            <rect key="frame" x="91" y="220" width="188" height="18"/>
+                            <rect key="frame" x="91" y="140" width="188" height="18"/>
                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                             <color key="textColor" red="0.0" green="0.46666666670000001" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1. Make sure it's switched on." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bcI-yv-RmI">
-                            <rect key="frame" x="25.666666666666671" y="258" width="193.33333333333331" height="17"/>
+                            <rect key="frame" x="25.666666666666671" y="178" width="193.33333333333331" height="17"/>
                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2. Make sure the coin cell battery has power." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rmw-BF-cDo">
-                            <rect key="frame" x="25.666666666666657" y="307.33333333333331" width="294.33333333333337" height="17"/>
+                            <rect key="frame" x="25.666666666666657" y="227.33333333333334" width="294.33333333333337" height="17"/>
                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Toggle the switch next to the micro USB port to switch it on." lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IAE-tV-Psp">
-                            <rect key="frame" x="25.666666666666657" y="277" width="318.66666666666674" height="13.333333333333314"/>
+                            <rect key="frame" x="25.666666666666657" y="197" width="318.66666666666674" height="13.333333333333343"/>
                             <constraints>
                                 <constraint firstAttribute="width" relation="lessThanOrEqual" constant="400" id="kfw-Pc-j4F"/>
                             </constraints>
@@ -146,7 +146,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="If not, connect it to a PC or a charger using a micro USB cable. Coin cell battery is on the bottom side of the dev kit." lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MCd-9i-lIO">
-                            <rect key="frame" x="25.666666666666657" y="326.33333333333331" width="328.33333333333337" height="26.333333333333314"/>
+                            <rect key="frame" x="25.666666666666657" y="246.33333333333334" width="328.33333333333337" height="26.333333333333343"/>
                             <constraints>
                                 <constraint firstAttribute="width" relation="lessThanOrEqual" constant="400" id="MaG-uG-uPQ"/>
                             </constraints>
@@ -287,10 +287,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ic_bluetooth_searching_48pt" width="144" height="144"/>
         <image name="ic_lightbulb_outline_48pt" width="144" height="144"/>
         <image name="ic_radio_button_checked" width="72" height="72"/>
         <image name="rssi_4" width="409.60000610351562" height="409.60000610351562"/>
+        <image name="scanning" width="64" height="64"/>
     </resources>
     <color key="tintColor" red="0.0" green="0.60392156862745094" blue="0.80784313725490198" alpha="1" colorSpace="calibratedRGB"/>
 </document>
