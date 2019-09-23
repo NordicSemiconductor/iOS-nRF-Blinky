@@ -315,6 +315,7 @@
 				fi,
 				"pt-BR",
 				"zh-Hans",
+				pl,
 			);
 			mainGroup = 30B664381FCD6E65003C8B55;
 			productRefGroup = 30B664421FCD6E65003C8B55 /* Products */;
