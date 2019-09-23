@@ -14,28 +14,30 @@ A simplified proprietary service by Nordic Semiconductor, containing two charact
   - UUID: **`00001524-1212-EFDE-1523-785FEABCD123`**
   - Value: **`1`** => Button Pressed
   - Value: **`0`** => Button Released
+  
+  For full specification, check out 
+  [documentation](https://www.nordicsemi.com/DocLib/Content/SDK_Doc/nRF5_SDK/v15-2-0/ble_sdk_app_blinky).
 
-### Requirements:
+## Requirements:
 - An iOS device with BLE capabilities
-- A [nRF52](https://www.nordicsemi.com/eng/Products/Bluetooth-low-energy/nRF52-DK) or [nRF51](https://www.nordicsemi.com/eng/Products/nRF51-DK) Dev Kit
-- The Blinky example firmware to flash on the Development Kit, there are a few places to acquire that:
-- For your conveninence, we have bundled two firmwares in this project under the Firmwares directory.
+- A [Development Kit](https://www.nordicsemi.com/Software-and-Tools/Development-Kits)
+- The Blinky example firmware to flash on the Development Kit. For your conveninence, we have bundled two firmwares in this project under the Firmwares directory.
 - To get the latest firmwares and check the source code, you may go directly to our [Developers website](http://developer.nordicsemi.com/nRF5_SDK/) and download the SDK version you need, then you can find the source code and hex files to the blinky demo in the directory `/examples/ble_peripheral/ble_app_blinky/`
--  More information about the nRFBlinky example firmware can be found in the [Info center](https://infocenter.nordicsemi.com/index.jsp?topic=%2Fcom.nordic.infocenter.sdk5.v14.1.0%2Fble_sdk_app_blinky.html)
+-  More information about the nRFBlinky example firmware can be found in the [documentation](https://www.nordicsemi.com/DocLib/Content/SDK_Doc/nRF5_SDK/v15-2-0/ble_sdk_app_blinky).
 
-### Installation and usage:
+## Installation and usage:
 - Prepare your Development kit.
   - Plug in the Development Kit to your computer via USB.
   - Power On the Development Kit.
   - The Development Kit will now appear as a Mass storage device.
   - Drag (or copy/paste) the appropriate HEX file onto that new device.
-  - The Development Kit lEDS will flash and it will disconnect and reconnect.
+  - The Development Kit LEDs will flash and it will disconnect and reconnect.
   - The Development Kit is now ready and flashed with the nRFBlinky example firmware.
 
 - Start Xcode and run build the project against your target iOS Device (**Note:** BLE is not available in the iOS simulator, so the iOS device is a requirement to test the application).
   - Launch the nRFBlinky app on your iOS device.
   - The app will start scanning for nearby peripherals.
-  - Select the nRF_Blinky peripheral that appears on screen (**Note:** if the peripheral does not show up, ensure that it's powered on and functional).
+  - Select the Nordic_Blinky peripheral that appears on screen (**Note:** if the peripheral does not show up, ensure that it's powered on and functional).
   - Your iOS device will now connect to the peripheral and state is displayed on the screen.
   - Changing the value of the Toggle switch will turn LED 3 on or off.
   - Pressing Button 1 on the Development Kit will show the button state as Pressed on the app.

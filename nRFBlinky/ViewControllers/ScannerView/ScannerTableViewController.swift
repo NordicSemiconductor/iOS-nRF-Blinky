@@ -10,31 +10,50 @@ import UIKit
 import CoreBluetooth
 
 class ScannerTableViewController: UITableViewController, CBCentralManagerDelegate {
-    @IBOutlet var emptyPeripheralsView: UIView!
+    
+    // MARK: - Outlets and Actions
+    
+    @IBOutlet weak var emptyPeripheralsView: UIView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
+    // MARK: - Properties
     
     private var centralManager: CBCentralManager!
     private var discoveredPeripherals = [BlinkyPeripheral]()
-    private var targetperipheral: BlinkyPeripheral?
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
+    
+    // MARK: - UIViewController
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        discoveredPeripherals.removeAll()
+        tableView.reloadData()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        navigationController?.navigationBar.barTintColor = UIColor.nordicBlue
+        centralManager.delegate = self
+        if centralManager.state == .poweredOn {
+            activityIndicator.startAnimating()
+            centralManager.scanForPeripherals(withServices: [BlinkyPeripheral.nordicBlinkyServiceUUID],
+                                              options: [CBCentralManagerScanOptionAllowDuplicatesKey : true])
+        }
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        centralManager = (((UIApplication.shared.delegate) as? AppDelegate)?.centralManager)!
-        centralManager.delegate = self
+        centralManager = CBCentralManager()
     }
 
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         if view.subviews.contains(emptyPeripheralsView) {
             coordinator.animate(alongsideTransition: { (context) in
-                let width = self.emptyPeripheralsView.frame.size.width
-                let height = self.emptyPeripheralsView.frame.size.height
-                if context.containerView.frame.size.height > context.containerView.frame.size.width {
+                let width = self.emptyPeripheralsView.frame.width
+                let height = self.emptyPeripheralsView.frame.height
+                if context.containerView.frame.height > context.containerView.frame.width {
                     self.emptyPeripheralsView.frame = CGRect(x: 0,
-                                                             y: (context.containerView.frame.size.height / 2) - (height / 2),
+                                                             y: (context.containerView.frame.height / 2) - 180,
                                                              width: width,
                                                              height: height)
                 } else {
@@ -47,7 +66,8 @@ class ScannerTableViewController: UITableViewController, CBCentralManagerDelegat
         }
     }
     
-    // MARK: - Table view data source
+    // MARK: - UITableViewDelegate
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -63,29 +83,30 @@ class ScannerTableViewController: UITableViewController, CBCentralManagerDelegat
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let aCell = tableView.dequeueReusableCell(withIdentifier: BlinkyTableViewCell.reuseIdentifier, for: indexPath) as! BlinkyTableViewCell
-        aCell.setupViewWithPeripheral(discoveredPeripherals[indexPath.row])
+        let peripheral = discoveredPeripherals[indexPath.row]
+        aCell.setupView(withPeripheral: peripheral)
         return aCell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         centralManager.stopScan()
         activityIndicator.stopAnimating()
-        targetperipheral = discoveredPeripherals[indexPath.row]
         tableView.deselectRow(at: indexPath, animated: true)
-        performSegue(withIdentifier: "PushBlinkyView", sender: nil)
+        performSegue(withIdentifier: "PushBlinkyView", sender: discoveredPeripherals[indexPath.row])
     }
     
     // MARK: - CBCentralManagerDelegate
-    //
+    
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
-        
-        let newPeripheral = BlinkyPeripheral(withPeripheral: peripheral, advertisementData: advertisementData, andRSSI: RSSI)
+        let newPeripheral = BlinkyPeripheral(withPeripheral: peripheral, advertisementData: advertisementData, andRSSI: RSSI, using: centralManager)
         if !discoveredPeripherals.contains(newPeripheral) {
             discoveredPeripherals.append(newPeripheral)
-            tableView.reloadData()
+            tableView.beginUpdates()
+            tableView.insertRows(at: [IndexPath(row: discoveredPeripherals.count - 1, section: 0)], with: .fade)
+            tableView.endUpdates()
         } else {
             if let index = discoveredPeripherals.index(of: newPeripheral) {
-                if let aCell = tableView.cellForRow(at: [0,index]) as? BlinkyTableViewCell {
+                if let aCell = tableView.cellForRow(at: [0, index]) as? BlinkyTableViewCell {
                     aCell.peripheralUpdatedAdvertisementData(newPeripheral)
                 }
             }
@@ -97,32 +118,22 @@ class ScannerTableViewController: UITableViewController, CBCentralManagerDelegat
             print("Central is not powered on")
         } else {
             activityIndicator.startAnimating()
-            centralManager.scanForPeripherals(withServices: [BlinkyPeripheral.nordicBlinkyServiceUUID], options: [CBCentralManagerScanOptionAllowDuplicatesKey : true])
+            centralManager.scanForPeripherals(withServices: [BlinkyPeripheral.nordicBlinkyServiceUUID],
+                                              options: [CBCentralManagerScanOptionAllowDuplicatesKey : true])
         }
-    }
-
-    // MARK: - UIViewController
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        discoveredPeripherals.removeAll()
-        tableView.reloadData()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        centralManager.delegate = self
-        if centralManager.state == .poweredOn {
-            activityIndicator.startAnimating()
-            centralManager.scanForPeripherals(withServices: [BlinkyPeripheral.nordicBlinkyServiceUUID], options: [CBCentralManagerScanOptionAllowDuplicatesKey : true])
-        }
-    }
+    // MARK: - Implementation
 
     private func showEmptyPeripheralsView() {
         if !view.subviews.contains(emptyPeripheralsView) {
             view.addSubview(emptyPeripheralsView)
             emptyPeripheralsView.alpha = 0
-            emptyPeripheralsView.frame = CGRect(x: 0, y: (view.frame.height / 2) - (emptyPeripheralsView.frame.size.height / 2), width: view.frame.width, height: emptyPeripheralsView.frame.height)
-            view.bringSubview(toFront: emptyPeripheralsView)
+            emptyPeripheralsView.frame = CGRect(x: 0,
+                                                y: (view.frame.height / 2) - 180,
+                                                width: view.frame.width,
+                                                height: emptyPeripheralsView.frame.height)
+            view.bringSubviewToFront(emptyPeripheralsView)
             UIView.animate(withDuration: 0.5, animations: {
                 self.emptyPeripheralsView.alpha = 1
             })
@@ -133,22 +144,22 @@ class ScannerTableViewController: UITableViewController, CBCentralManagerDelegat
         if view.subviews.contains(emptyPeripheralsView) {
             UIView.animate(withDuration: 0.5, animations: {
                 self.emptyPeripheralsView.alpha = 0
-            }, completion: { (completed) in
+            }, completion: { completed in
                 self.emptyPeripheralsView.removeFromSuperview()
             })
         }
     }
 
     // MARK: - Segue and navigation
+    
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         return identifier == "PushBlinkyView"
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "PushBlinkyView" {
-            if let peripheral = targetperipheral {
+            if let peripheral = sender as? BlinkyPeripheral {
                 let destinationView = segue.destination as! BlinkyViewController
-                destinationView.setCentralManager(centralManager)
                 destinationView.setPeripheral(peripheral)
             }
         }
