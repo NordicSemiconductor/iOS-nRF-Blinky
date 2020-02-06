@@ -69,15 +69,19 @@ class ScannerTableViewController: UITableViewController, CBCentralManagerDelegat
     // MARK: - UITableViewDelegate
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if discoveredPeripherals.count > 0 {
             hideEmptyPeripheralsView()
         } else {
             showEmptyPeripheralsView()
         }
+        return discoveredPeripherals.count > 0 ? 1 : 0
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Nearby devices"
+    }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return discoveredPeripherals.count
     }
     
@@ -102,10 +106,13 @@ class ScannerTableViewController: UITableViewController, CBCentralManagerDelegat
         if !discoveredPeripherals.contains(newPeripheral) {
             discoveredPeripherals.append(newPeripheral)
             tableView.beginUpdates()
+            if discoveredPeripherals.count == 1 {
+                tableView.insertSections(IndexSet(integer: 0), with: .fade)
+            }
             tableView.insertRows(at: [IndexPath(row: discoveredPeripherals.count - 1, section: 0)], with: .fade)
             tableView.endUpdates()
         } else {
-            if let index = discoveredPeripherals.index(of: newPeripheral) {
+            if let index = discoveredPeripherals.firstIndex(of: newPeripheral) {
                 if let aCell = tableView.cellForRow(at: [0, index]) as? BlinkyTableViewCell {
                     aCell.peripheralUpdatedAdvertisementData(newPeripheral)
                 }
