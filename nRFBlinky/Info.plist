@@ -47,5 +47,7 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<true/>
+	<key>NSBluetoothAlwaysUsageDescription</key>
+	<string>nRF Blinky uses Bluetooth to communicate with the nRF Blinky sample application on nRF DK.</string>
 </dict>
 </plist>
