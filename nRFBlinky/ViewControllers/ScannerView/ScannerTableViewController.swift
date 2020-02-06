@@ -112,7 +112,7 @@ class ScannerTableViewController: UITableViewController, CBCentralManagerDelegat
             tableView.insertRows(at: [IndexPath(row: discoveredPeripherals.count - 1, section: 0)], with: .fade)
             tableView.endUpdates()
         } else {
-            if let index = discoveredPeripherals.index(of: newPeripheral) {
+            if let index = discoveredPeripherals.firstIndex(of: newPeripheral) {
                 if let aCell = tableView.cellForRow(at: [0, index]) as? BlinkyTableViewCell {
                     aCell.peripheralUpdatedAdvertisementData(newPeripheral)
                 }
