@@ -17,11 +17,13 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.1.0</string>
+	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleVersion</key>
-	<string>6</string>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSBluetoothAlwaysUsageDescription</key>
+	<string>nRF Blinky uses Bluetooth to communicate with the nRF Blinky sample application on nRF DK.</string>
 	<key>NSBluetoothPeripheralUsageDescription</key>
 	<string>nRF Blinky uses Bluetooth to communicate with the nRF Blinky Development Kit</string>
 	<key>UILaunchStoryboardName</key>
@@ -47,7 +49,5 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<true/>
-	<key>NSBluetoothAlwaysUsageDescription</key>
-	<string>nRF Blinky uses Bluetooth to communicate with the nRF Blinky sample application on nRF DK.</string>
 </dict>
 </plist>
