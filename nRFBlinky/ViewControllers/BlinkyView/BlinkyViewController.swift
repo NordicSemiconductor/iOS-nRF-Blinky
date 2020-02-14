@@ -72,7 +72,7 @@ class BlinkyViewController: UITableViewController, BlinkyDelegate {
     override func viewWillDisappear(_ animated: Bool) {
         // Restore original navigation bar color. It might have changed
         // when the device got disconnected.
-        self.setNavigationBarColor(UIColor.nordicBlue)
+        self.setNavigationBarColor(.dynamicColor(light: .nordicBlue, dark: .black))
         super.viewWillDisappear(animated)
     }
 
@@ -131,8 +131,8 @@ class BlinkyViewController: UITableViewController, BlinkyDelegate {
     
     func blinkyDidDisconnect() {
         DispatchQueue.main.async {
-            self.setNavigationBarColor(UIColor.nordicRed)
-            self.ledToggleSwitch.onTintColor = UIColor.nordicRed
+            self.setNavigationBarColor(.dynamicColor(light: .nordicRed, dark: .nordicRedDark))
+            self.ledToggleSwitch.onTintColor = .nordicRed
             self.ledToggleSwitch.isEnabled = false
         }
     }
