@@ -1,9 +1,9 @@
 /*
- Localizable.strings
- nRFBlinky
+  Localizable.strings
+  nRFBlinky
  
- Created by Ketil Erichsen on 08/02/2019.
- Copyright © 2019 Nordic Semiconductor ASA. All rights reserved.
+  Created by Ketil Erichsen on 08/02/2019.
+  Copyright © 2019 Nordic Semiconductor ASA. All rights reserved.
  */
 "ON" = "PÅ";
 "OFF" = "AV";
