@@ -142,14 +142,11 @@
 		30B664431FCD6E65003C8B55 /* nRFBlinky */ = {
 			isa = PBXGroup;
 			children = (
+				30B664441FCD6E65003C8B55 /* AppDelegate.swift */,
 				30B664861FCDA2C5003C8B55 /* Models */,
 				30B664791FCD722A003C8B55 /* ViewControllers */,
-				30B664441FCD6E65003C8B55 /* AppDelegate.swift */,
-				52A637C4220DE11200F5308D /* String+Localization.swift */,
-				52FB0AEF22131B7D00B1E575 /* UIColor+Nordic.swift */,
-				30B664481FCD6E65003C8B55 /* Main.storyboard */,
-				30B6644D1FCD6E65003C8B55 /* LaunchScreen.storyboard */,
-				52A637C2220DDECD00F5308D /* Localizable.strings */,
+				52B5372523F6A0FA00372948 /* Utils */,
+				52B5372623F6A13600372948 /* UI */,
 				30B6644B1FCD6E65003C8B55 /* Assets.xcassets */,
 				30B664501FCD6E65003C8B55 /* Info.plist */,
 			);
@@ -177,9 +174,9 @@
 		30B664791FCD722A003C8B55 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				30B6647F1FCD9638003C8B55 /* RootViewController.swift */,
 				30B664891FD15900003C8B55 /* BlinkyView */,
 				30B664811FCDA0DE003C8B55 /* ScannerView */,
-				30B6647F1FCD9638003C8B55 /* RootViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -207,6 +204,25 @@
 				30B6648A1FD1590A003C8B55 /* BlinkyViewController.swift */,
 			);
 			path = BlinkyView;
+			sourceTree = "<group>";
+		};
+		52B5372523F6A0FA00372948 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				52A637C4220DE11200F5308D /* String+Localization.swift */,
+				52FB0AEF22131B7D00B1E575 /* UIColor+Nordic.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		52B5372623F6A13600372948 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				52A637C2220DDECD00F5308D /* Localizable.strings */,
+				30B664481FCD6E65003C8B55 /* Main.storyboard */,
+				30B6644D1FCD6E65003C8B55 /* LaunchScreen.storyboard */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
