@@ -45,7 +45,7 @@ class BlinkyViewController: UITableViewController, BlinkyDelegate {
 
     // MARK: - Properties
 
-    private var hapticGenerator: NSObject? // Only available on iOS 10 and above
+    private var hapticGenerator: NSObject? // UIImpactFeedbackGenerator is available on iOS 10 and above
     private var blinkyPeripheral: BlinkyPeripheral!
     private var centralManager: CBCentralManager!
     
@@ -67,6 +67,13 @@ class BlinkyViewController: UITableViewController, BlinkyDelegate {
         }
         prepareHaptics()
         blinkyPeripheral.connect()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        // Restore original navigation bar color. It might have changed
+        // when the device got disconnected.
+        self.setNavigationBarColor(UIColor.nordicBlue)
+        super.viewWillDisappear(animated)
     }
 
     override func viewDidDisappear(_ animated: Bool) {
@@ -105,25 +112,26 @@ class BlinkyViewController: UITableViewController, BlinkyDelegate {
     // MARK: - Blinky Delegate
     
     func blinkyDidConnect(ledSupported: Bool, buttonSupported: Bool) {
-        DispatchQueue.main.async {
-            self.ledToggleSwitch.isEnabled = ledSupported
-            
-            if buttonSupported {
-                self.buttonStateLabel.text = "Reading...".localized
+        if ledSupported || buttonSupported {
+            DispatchQueue.main.async {
+                self.ledToggleSwitch.isEnabled = ledSupported
+                
+                if buttonSupported {
+                    self.buttonStateLabel.text = "Reading...".localized
+                }
+                if ledSupported {
+                    self.ledStateLabel.text    = "Reading...".localized
+                }
             }
-            if ledSupported {
-                self.ledStateLabel.text    = "Reading...".localized
-            }
-        }
-        // Not supoprted device?
-        if !ledSupported && !buttonSupported {
+        } else {
+            // Not supported device
             blinkyPeripheral.disconnect()
         }
     }
     
     func blinkyDidDisconnect() {
         DispatchQueue.main.async {
-            self.navigationController?.navigationBar.barTintColor = UIColor.nordicRed
+            self.setNavigationBarColor(UIColor.nordicRed)
             self.ledToggleSwitch.onTintColor = UIColor.nordicRed
             self.ledToggleSwitch.isEnabled = false
         }
@@ -151,4 +159,20 @@ class BlinkyViewController: UITableViewController, BlinkyDelegate {
             self.buttonTapHapticFeedback()
         }
     }
+}
+
+extension BlinkyViewController {
+    
+    /// Sets the color of the Navigation Bar to given one.
+    /// - Parameter color: The new Navigation Bar color.
+    func setNavigationBarColor(_ color: UIColor) {
+        let navigationBar = navigationController?.navigationBar
+        if #available(iOS 13.0, *) {
+            navigationBar?.standardAppearance.backgroundColor = color
+            navigationBar?.scrollEdgeAppearance?.backgroundColor = color
+        } else {
+            navigationBar?.barTintColor = color
+        }
+    }
+    
 }

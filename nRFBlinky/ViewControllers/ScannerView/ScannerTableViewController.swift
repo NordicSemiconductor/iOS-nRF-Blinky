@@ -47,13 +47,14 @@ class ScannerTableViewController: UITableViewController, CBCentralManagerDelegat
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         discoveredPeripherals.removeAll()
         tableView.reloadData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        navigationController?.navigationBar.barTintColor = UIColor.nordicBlue
+        
         centralManager.delegate = self
         if centralManager.state == .poweredOn {
             activityIndicator.startAnimating()
