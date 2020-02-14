@@ -1,7 +1,11 @@
+- **1.2.0**:
+    - Improvement: Added support for iOS 13, inclusing Dark Theme
+    - Improvement: Migration to Swift 5
+
 - **1.1.0**:
     - Improvement: New Nordic look & feel
     - Improvement: Localisatino support with Spanish, Italian, Norwegian, French, Russian, Ukrainian, Romanian, Polish, German and Korean
-    - Bugfix: FIxed hint positioning after orientation change
+    - Bugfix: Fixed hint positioning after orientation change
     
 - **1.0.2**:
     - Improvement: Blinky peripheral name is now used as the title of the view instead of the default name
