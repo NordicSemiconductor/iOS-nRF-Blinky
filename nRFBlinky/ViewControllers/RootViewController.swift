@@ -49,7 +49,7 @@ class RootViewController: UINavigationController {
             navigationBar.standardAppearance = navBarAppearance
             navigationBar.scrollEdgeAppearance = navBarAppearance
         } else {
-            // Fallback on earlier versions
+            // For older versions the navugation bar settings are set in the storyboard.
         }
     }
 }

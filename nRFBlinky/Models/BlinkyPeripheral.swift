@@ -32,9 +32,24 @@ import UIKit
 import CoreBluetooth
 
 protocol BlinkyDelegate {
+    
+    /// A callback called when a device gets connected.
+    /// - Parameters:
+    ///   - ledSupported: A flag indicating that the LED Service is present on the
+    ///                   device.
+    ///   - buttonSupported: A flag indicating that the Button Service is present
+    ///                      on the device.
     func blinkyDidConnect(ledSupported: Bool, buttonSupported: Bool)
+    
+    /// A callback called when the device gets disconnected.
     func blinkyDidDisconnect()
+    
+    /// A callback called after a notification with new button state has been received.
+    /// - Parameter isPressed: The new button state.
     func buttonStateChanged(isPressed: Bool)
+    
+    /// A callback called when the request to turn on or off the LED has been sent.
+    /// - Parameter isOn: The new LED state.
     func ledStateChanged(isOn: Bool)
 }
 
@@ -57,6 +72,7 @@ class BlinkyPeripheral: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate
     
     // MARK: - Computed variables
     
+    /// Whether the device is in connected state, or not.
     public var isConnected: Bool {
         return basePeripheral.state == .connected
     }
@@ -145,6 +161,8 @@ class BlinkyPeripheral: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate
     }
     
     /// Starts characteristic discovery for LED and Button Characteristics.
+    /// - Parameter service: The instance of a service in which characteristics will
+    ///                      be discovered.
     private func discoverCharacteristicsForBlinkyService(_ service: CBService) {
         print("Discovering LED and Button characteristrics...")
         basePeripheral.discoverCharacteristics(
@@ -156,6 +174,7 @@ class BlinkyPeripheral: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate
     /// If the characteristic does not have notify property, this method will
     /// call delegate's blinkyDidConnect method and try to read values
     /// of LED and Button.
+    /// - Parameter characteristic: Characteristic to be enabled.
     private func enableNotifications(for characteristic: CBCharacteristic) {
         if characteristic.properties.contains(.notify) {
             print("Enabling notifications for characteristic...")
@@ -172,6 +191,7 @@ class BlinkyPeripheral: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate
     /// If there is no LED characteristic, this method does nothing.
     /// If the characteristic does not have any of write properties
     /// this method also does nothing.
+    /// - Parameter value: Data to be written to the LED characteristic.
     private func writeLEDCharcateristic(withValue value: Data) {
         if let ledCharacteristic = ledCharacteristic {
             if ledCharacteristic.properties.contains(.write) {
@@ -190,27 +210,29 @@ class BlinkyPeripheral: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate
     }
     
     /// A callback called when the LED value has been written.
+    /// - Parameter value: The data written.
     private func didWriteValueToLED(_ value: Data) {
         print("LED value written \(value[0])")
         delegate?.ledStateChanged(isOn: value[0] == 0x1)
     }
     
     /// A callback called when the Button characteristic value has changed.
+    /// - Parameter value: The data received.
     private func didReceiveButtonNotification(withValue value: Data) {
         print("Button value changed to: \(value[0])")
         delegate?.buttonStateChanged(isPressed: value[0] == 0x1)
     }
-
-    private func parseAdvertisementData(_ advertisementDictionary: [String : Any]) -> String? {
-        var advertisedName: String
-
-        if let name = advertisementDictionary[CBAdvertisementDataLocalNameKey] as? String{
-            advertisedName = name
+    
+    /// This method parses the advertising data and returns the device name
+    /// found in Complete or Shortened Local Name field.
+    /// - Parameter data: The advertising data of the device.
+    /// - Returns: The device name or "Unknown Device" when not found.
+    private func parseAdvertisementData(_ data: [String : Any]) -> String {
+        if let name = data[CBAdvertisementDataLocalNameKey] as? String {
+            return name
         } else {
-            advertisedName = "Unknown Device".localized
+            return "Unknown Device".localized
         }
-        
-        return advertisedName
     }
     
     // MARK: - NSObject protocols
@@ -285,6 +307,7 @@ class BlinkyPeripheral: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate
             }
         }
         // Blinky service has not been found
+        print("Device not supported: Required service not found.")
         delegate?.blinkyDidConnect(ledSupported: false, buttonSupported: false)
     }
     
@@ -304,11 +327,12 @@ class BlinkyPeripheral: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate
         // If Button caracteristic was found, try to enable notifications on it.
         if let buttonCharacteristic = buttonCharacteristic {
             enableNotifications(for: buttonCharacteristic)
-        } else {
-            // else, notify the delegate and try to read LED state.
-            delegate?.blinkyDidConnect(ledSupported: ledCharacteristic != nil, buttonSupported: false)
-            // This method will do nothing if LED characteristics was not found.
+        } else if let _ = ledCharacteristic {
+            // else, notify the delegate and read LED state.
+            delegate?.blinkyDidConnect(ledSupported: true, buttonSupported: false)
             readLEDValue()
+        } else {
+            print("Device not supported: Required characteristics not found.")
         }
     }
     
