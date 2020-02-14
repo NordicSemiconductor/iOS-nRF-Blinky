@@ -2,6 +2,9 @@
 #
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
 
+## OSX
+.DS_Store
+
 ## Build generated
 build/
 DerivedData/
@@ -67,5 +70,9 @@ fastlane/Preview.html
 fastlane/screenshots
 fastlane/test_output
 
-nRFBlinky.xcodeproj/project.xcworkspace/xcshareddata
-nRFBlinky.xcodeproj/xcshareddata/xcschemes
+# Code Injection
+#
+# After new code Injection tools there's a generated folder /iOSInjectionProject
+# https://github.com/johnno1962/injectionforxcode
+
+iOSInjectionProject/
