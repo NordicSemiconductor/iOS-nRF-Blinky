@@ -1,4 +1,9 @@
-# nRF BLINKY
+# :x: [Error 301](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/301) :x:
+
+This project has been moved. The nRF Blinky application for iOS is now available as a Sample app at [CoreBluetooth Mock](https://github.com/NordicSemiconductor/IOS-CoreBluetooth-Mock/)
+library.
+
+# nRF Blinky
 
 nRF Blinky is an example app targeted towards newcomer BLE developers.
 This application will demonstrate how to control a LED on an nRF development kit and receive notifications when the button on the kit is pressed and released.
